@@ -159,6 +159,20 @@ Then open your browser and interact with the application.
 
 ---
 
+## 📸 Application Screenshots
+
+<p align="center">
+  <img src="screenshots/home.png" width="45%">
+  <img src="screenshots/prediction.png" width="45%">
+</p>
+
+<p align="center">
+  <img src="screenshots/ai_report.png" width="45%">
+  <img src="screenshots/study_plan.png" width="45%">
+</p>
+
+---
+
 ## 📷 Application Workflow
 
 1. Enter student details.

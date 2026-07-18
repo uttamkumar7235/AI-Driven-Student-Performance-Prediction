@@ -3,23 +3,18 @@ import pandas as pd
 import joblib
 from ai_helper import generate_ai_report
 
-# -----------------------------
+
 # Page Configuration
-# -----------------------------
 st.set_page_config(
     page_title="AI-Driven Student Performance Prediction",
     page_icon="🎓",
     layout="wide"
 )
 
-# -----------------------------
 # Load Model
-# -----------------------------
 model = joblib.load("model.pkl")
 
-# -----------------------------
 # Header
-# -----------------------------
 st.title("🎓 AI-Driven Student Performance Prediction")
 
 st.markdown("""
@@ -28,9 +23,8 @@ Predict a student's final performance using Machine Learning and receive AI-powe
 
 st.divider()
 
-# -----------------------------
+
 # Sidebar
-# -----------------------------
 st.sidebar.title("🎓 AI Student Advisor")
 
 st.sidebar.success("✅ Machine Learning Prediction")
@@ -46,9 +40,8 @@ st.sidebar.markdown("""
 This application predicts a student's academic performance using a Random Forest model and then uses Generative AI to provide personalized academic insights and a study plan.
 """)
 
-# -----------------------------
+
 # Layout
-# -----------------------------
 left, right = st.columns(2)
 
 with left:
@@ -142,19 +135,13 @@ predict = st.button(
 
 if predict:
 
-    # -----------------------------
-    # Save Text Values for Gemini
-    # -----------------------------
-
+    # Save Text Values for Groq
     internet_text = internet
     parent_education_text = parent_education
     extracurricular_text = extracurricular
     family_income_text = family_income
 
-    # -----------------------------
     # Convert to Numbers for ML
-    # -----------------------------
-
     internet = 1 if internet_text == "Yes" else 0
 
     parent_education = {
@@ -172,10 +159,7 @@ if predict:
         "High": 2
     }[family_income_text]
 
-    # -----------------------------
     # Prediction
-    # -----------------------------
-
     new_data = pd.DataFrame({
         "StudyHours": [study_hours],
         "Attendance": [attendance],
@@ -218,10 +202,7 @@ if predict:
 
     st.progress(min(score / 100, 1.0))
 
-    # -----------------------------
     # Generate AI Report
-    # -----------------------------
-
     student_data = {
         "StudyHours": study_hours,
         "Attendance": attendance,
